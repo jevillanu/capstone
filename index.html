@@ -52,7 +52,7 @@
         const password = document.getElementById('login-pass').value
 
       userbase.signIn({ username, password, rememberMe: 'none' })
-        .then((user) => alert('You signed in!'))
+        .then((user) => goToHomepage())
         .catch((e) => document.getElementById('login-error').innerHTML = e)
       }
 
