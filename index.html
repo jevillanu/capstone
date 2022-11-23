@@ -50,7 +50,7 @@
             <img src="logo.png" alt="">
           </div>
 
-          <div class="title">User: <span id="username">placeholder</span></div>
+          <div class="title">User: <span id="username-display">placeholder</span></div>
             <table class="info" style="width:100%">
               <tr>
                 <th style="width:30%">First Name: </th>
@@ -136,13 +136,14 @@
         const password = document.getElementById('login-pass').value
 
       userbase.signIn({ username, password, rememberMe: 'local' })
-        .then((user) => goToUserView())
+        .then((user) => goToUserView(user.username))
         .catch((e) => document.getElementById('login-error').innerHTML = e)
       }
 
-      function goToUserView() {
+      function goToUserView(username) {
         document.getElementById('auth-view').style.display = 'none'
         document.getElementById('user-view').style.display = 'none'
+        document.getElementById('username-display').innerText = username
       }
 
       function editInfo() {
