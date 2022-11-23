@@ -54,23 +54,23 @@
             <table class="info" style="width:100%">
               <tr>
                 <th style="width:30%">First Name: </th>
-                <td>asdga</td>
+                <td id="fname-display">asdga</td>
               </tr>
               <tr>
                 <th>Last Name: </th>
-                <td>asdga</td>
+                <td id="lname-display">asdga</td>
               </tr>
               <tr>
                 <th>Birthday: </th>
-                <td>te</td>
+                <td id="bday-display">te</td>
               </tr>
               <tr>
                 <th>Email: </th>
-                <td></td>
+                <tdv id="email-display"></td>
               </tr>
               <tr>
                 <th>Phone: </th>
-                <td></td>
+                <td id="phone-display"></td>
               </tr>
             </table>
             <div class="user-buttons">
@@ -95,23 +95,23 @@
             <table class="info" style="width:100%">
               <tr>
                 <th style="width:30%">First Name:</th>
-                <td><input class="user-edit"type="text" id="fname"/></td>
+                <td><input class="user-edit"type="text" id="fname-input"/></td>
               </tr>
               <tr>
                 <th>Last Name:</th>
-                <td><input class="user-edit" type="text" id="lname"/></td>
+                <td><input class="user-edit" type="text" id="lname-input"/></td>
               </tr>
               <tr>
                 <th>Birthday: </th>
-                <td><input class="user-edit" type="text" id="bday"/></td>
+                <td><input class="user-edit" type="text" id="bday-input"/></td>
               </tr>
               <tr>
                 <th>Email: </th>
-                <td><input class="user-edit" type="text" id="email"/></td>
+                <td><input class="user-edit" type="text" id="email-input"/></td>
               </tr>
               <tr>
                 <th>Phone: </th>
-                <td><input class="user-edit" type="text" id="phone"/></td>
+                <td><input class="user-edit" type="text" id="phone-input"/></td>
               </tr>
             </table>
             <div class="submit-container">
@@ -144,6 +144,14 @@
         document.getElementById('auth-view').style.display = 'none'
         document.getElementById('user-div').style.display = 'flex'
         document.getElementById('username-display').innerText = username
+
+        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+      }
+
+      function showInfo(items) {
+        document.getElementById("fname-display").innerText = items[0]
+
+
       }
 
       function editInfo() {
@@ -161,6 +169,16 @@
         e.preventDefault()
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
+
+        userbase.openDatabase({ databaseName: 'userInfo', changehandler: changeInfo(items)})
+      }
+
+      function changeInfo(items) {
+        const fnameDisplay = document.getElementById("fname-display").value
+
+        userbase.insertItem({ databaseName: 'userInfo', item: { fname = 'fnameDisplay' }
+      }).then(() => showInfo())
+        .catch((e) => console.error(e))
       }
 
       function goToHomepage() {
