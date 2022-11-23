@@ -80,9 +80,8 @@
     <!-- Application Code -->
     <script type="text/javascript">
       userbase.init({ appId: '2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae' })
-        .then((session)) => {
-          document.getElementById('username').innerHTML = session.user.username
-        }
+        .then((session)) => document.getElementById('username').innerHTML = session.user.username
+
 
 
     </script>
