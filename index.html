@@ -115,7 +115,7 @@
               </tr>
             </table>
             <div class="submit-container">
-              <input type='submit' class="edit-submit" value='Submit' />
+              <input type='submit' class="edit-submit" value='Submit' id="edit-submit"/>
             </div>
 
           </form>
@@ -157,6 +157,11 @@
           .catch((e) => document.getElementById('logout-error').innerText = e)
       }
 
+      function submitEdit() {
+        document.getElementById('info-container').style.display = 'block'
+        document.getElementById('info-edit').style.display = 'none'
+      }
+
       function goToHomepage() {
         window.location.replace("https://jevillanu.github.io/home.html");
       }
@@ -164,6 +169,7 @@
         document.getElementById('login-form').addEventListener('submit', handleLogin);
         document.getElementById('edit-button').addEventListener('click', editInfo);
         document.getElementById('logout-button').addEventListener('click', handleLogout);
+        document.getElementById('submit-edit').addEventListener('click', submitEdit);
     </script>
   </body>
 </html>
