@@ -170,10 +170,10 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changehandler: changeInfo(items)})
+        userbase.openDatabase({ databaseName: 'userInfo', changehandler: changeInfo()})
       }
 
-      function changeInfo(items) {
+      function changeInfo() {
         const fnameDisplay = document.getElementById("fname-display").value
 
         userbase.insertItem({ databaseName: 'userInfo', item: { fname: fnameDisplay }
