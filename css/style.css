@@ -118,7 +118,7 @@ table, td, tr, th{
 .info-container {
   flex: 1;
   margin-right: 20px;
-  display: none;
+  display: ;
 }
 
 .upload-container {
@@ -130,7 +130,7 @@ table, td, tr, th{
 .info-edit {
   flex: 1;
   margin-right: 20px;
-  display: ;
+  display: none;
 }
 
 input.user-edit {
