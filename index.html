@@ -176,7 +176,7 @@
       function changeInfo(items) {
         const fnameDisplay = document.getElementById("fname-display").value
 
-        userbase.insertItem({ databaseName: 'userInfo', item: { fname = fnameDisplay }
+        userbase.insertItem({ databaseName: 'userInfo', item: { fname: fnameDisplay }
       }).then(() => showInfo())
         .catch((e) => console.error(e))
       }
