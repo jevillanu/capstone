@@ -6,7 +6,7 @@
     <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
   </head>
   <body>
-    <!-- Login Form -->
+    <!-- user profile/upload hub -->
     <div class="user-div">
 
         <div class="info-container" display=>
@@ -17,7 +17,11 @@
           <div class="title">User: <span id="username">placeholder</span></div>
             <table class="info" style="width:100%">
               <tr>
-                <th style="width:25%">Name: </th>
+                <th style="width:30%">First Name: </th>
+                <td>asdga</td>
+              </tr>
+              <tr>
+                <th>Last Name: </th>
                 <td>asdga</td>
               </tr>
               <tr>
@@ -35,6 +39,39 @@
             </table>
 
         </div>
+
+        <!-- info edit page -->
+        <div class="info-edit">
+          <div class="logo">
+            <img src="logo.png" alt="">
+          </div>
+
+          <div class="title">User Edit</div>
+          <form class="" id="user-edit">
+            <table class="info" style="width:100%">
+              <tr>
+                <th style="width:30%">First Name:</th>
+                <td><input class="user-edit"type="text" id="fname"/></td>
+              </tr>
+              <tr>
+                <th>Last Name:</th>
+                <td><input class="user-edit" type="text" id="lname"/></td>
+              </tr>
+              <tr>
+                <th>Birthday: </th>
+                <td><input class="user-edit" type="text" id="bday"/></td>
+              </tr>
+              <tr>
+                <th>Email: </th>
+                <td><input class="user-edit" type="text" id="email"/></td>
+              </tr>
+              <tr>
+                <th>Phone: </th>
+                <td><input class="user-edit" type="text" id="phone"/></td>
+              </tr>
+            </table>
+          </form>
+        </div>
         <div class="upload-container">
           test
         </div>
@@ -43,8 +80,10 @@
     <!-- Application Code -->
     <script type="text/javascript">
       userbase.init({ appId: '2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae' })
+        .then((session)) => {
+          document.getElementById('username').innerHTML = session.user.username
+        }
 
-      document.getElementById('username').innerHTML = username
 
     </script>
   </body>
