@@ -14,12 +14,21 @@ body {
   border-radius: 100px;
 }
 
+.user-div {
+  margin: 100px auto;
+  width: 60%;
+  height: 500px;
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 100px;
+  display: flex;
+}
+
 .logo {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   margin:0 auto;
-  margin-bottom: 10px;
 }
 
 .logo img {
@@ -31,6 +40,7 @@ body {
   color: #000000;
   font-weight: bolder;
   font-size: 35px;
+  padding: 5px;
 }
 
 .form {
@@ -95,4 +105,23 @@ a {
 
 a:hover {
   color: #808080;
+}
+
+table, td, tr, th{
+  margin: auto;
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.info-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.upload-container {
+
+  flex: 2;
+  border: 1px solid black;
 }

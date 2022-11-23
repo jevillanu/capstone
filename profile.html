@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css\style.css">
+    <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+  </head>
+  <body>
+    <!-- Login Form -->
+    <div class="user-div">
+
+        <div class="info-container" display=>
+          <div class="logo">
+            <img src="logo.png" alt="">
+          </div>
+
+          <div class="title">User: <span id="username">placeholder</span></div>
+            <table class="info" style="width:100%">
+              <tr>
+                <th style="width:25%">Name: </th>
+                <td>asdga</td>
+              </tr>
+              <tr>
+                <th>Birthday: </th>
+                <td>te</td>
+              </tr>
+              <tr>
+                <th>Email: </th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Phone: </th>
+                <td></td>
+              </tr>
+            </table>
+
+        </div>
+        <div class="upload-container">
+          test
+        </div>
+
+    </div>
+    <!-- Application Code -->
+    <script type="text/javascript">
+      userbase.init({ appId: '2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae' })
+
+      document.getElementById('username').innerHTML = username
+
+    </script>
+  </body>
+</html>
