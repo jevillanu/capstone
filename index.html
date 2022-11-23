@@ -42,6 +42,89 @@
       <div id="login-error"></div>
 
     </div>
+    <!-- user profile/upload hub -->
+    <div class="user-div">
+
+        <div class="info-container" display=>
+          <div class="logo">
+            <img src="logo.png" alt="">
+          </div>
+
+          <div class="title">User: <span id="username">placeholder</span></div>
+            <table class="info" style="width:100%">
+              <tr>
+                <th style="width:30%">First Name: </th>
+                <td>asdga</td>
+              </tr>
+              <tr>
+                <th>Last Name: </th>
+                <td>asdga</td>
+              </tr>
+              <tr>
+                <th>Birthday: </th>
+                <td>te</td>
+              </tr>
+              <tr>
+                <th>Email: </th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Phone: </th>
+                <td></td>
+              </tr>
+            </table>
+            <div class="user-buttons">
+              <button type="button" id="edit-button" class="edit-button">Edit Info</button>
+              <button type="button" id="upload-button" class="upload-button">Upload Image</button>
+            </div>
+            <div class="logout-container">
+              <button type="button" id="logout-button" class="logout-button">Logout</button>
+            </div>
+            <div id="logout-error"></div>
+
+        </div>
+
+        <!-- info edit page -->
+        <div class="info-edit">
+          <div class="logo">
+            <img src="logo.png" alt="">
+          </div>
+
+          <div class="title">User Edit</div>
+          <form class="" id="user-edit">
+            <table class="info" style="width:100%">
+              <tr>
+                <th style="width:30%">First Name:</th>
+                <td><input class="user-edit"type="text" id="fname"/></td>
+              </tr>
+              <tr>
+                <th>Last Name:</th>
+                <td><input class="user-edit" type="text" id="lname"/></td>
+              </tr>
+              <tr>
+                <th>Birthday: </th>
+                <td><input class="user-edit" type="text" id="bday"/></td>
+              </tr>
+              <tr>
+                <th>Email: </th>
+                <td><input class="user-edit" type="text" id="email"/></td>
+              </tr>
+              <tr>
+                <th>Phone: </th>
+                <td><input class="user-edit" type="text" id="phone"/></td>
+              </tr>
+            </table>
+            <div class="submit-container">
+              <input type='submit' class="edit-submit" value='Submit' />
+            </div>
+
+          </form>
+        </div>
+        <div class="upload-container">
+          test
+        </div>
+
+    </div>
     <!-- Application Code -->
     <script type="text/javascript">
       userbase.init({ appId: '2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae' })
@@ -52,16 +135,34 @@
         const username = document.getElementById('login-user').value
         const password = document.getElementById('login-pass').value
 
-      userbase.signIn({ username, password, rememberMe: 'none' })
-        .then((user) => goToHomepage())
+      userbase.signIn({ username, password, rememberMe: 'local' })
+        .then((user) => goToUserView())
         .catch((e) => document.getElementById('login-error').innerHTML = e)
       }
 
+      function goToUserView() {
+        document.getElementById('auth-view').style.display = 'none'
+        document.getElementById('user-view').style.display = 'none'
+      }
+
+      function editInfo() {
+        document.getElementById('info-container').style.display = 'none'
+        document.getElementById('info-edit').style.display = 'block'
+      }
+
+      function handleLogout() {
+        userbase.signOut()
+          .then(() => goToHomepage())
+          .catch((e) => document.getElementById('logout-error').innerText = e)
+      }
+
       function goToHomepage() {
-        window.location.replace("http://jevillanu.github.io/profile.html")
+        window.location.replace("https://jevillanu.github.io/home.html");
       }
 
         document.getElementById('login-form').addEventListener('submit', handleLogin);
+        document.getElementById('edit-button').addEventListener('click', editInfo);
+        document.getElementById('logout-button').addEventListener('click', handleLogout;
     </script>
   </body>
 </html>

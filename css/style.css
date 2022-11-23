@@ -12,6 +12,7 @@ body {
   background-color: #fff;
   padding: 60px;
   border-radius: 100px;
+  display: block;
 }
 
 .user-div {
@@ -79,7 +80,7 @@ svg {
   margin-bottom: 30px;
 }
 
-input.login-button {
+input.login-button{
   width: 100%;
   padding: 12px 10px;
   border: none;
@@ -88,9 +89,63 @@ input.login-button {
   border-radius: 30px;
   background-color: #808080;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-input.login-button:hover{
+.user-buttons {
+  display: flex;
+}
+
+.edit-button {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 30px;
+  background-color: #808080;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.upload-button {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 30px;
+  background-color: #808080;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.logout-container, .submit-container {
+  width: 50%;
+  margin: auto;
+}
+
+.logout-button, .edit-submit {
+  padding: 8px 4px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 30px;
+  background-color: #808080;
+
+}
+
+.edit-submit {
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #404040;
+}
+
+input.login-button:hover, input.edit-submit:hover{
   background-color: #404040;
 }
 
@@ -118,7 +173,7 @@ table, td, tr, th{
 .info-container {
   flex: 1;
   margin-right: 20px;
-  display: ;
+  display: block;
 }
 
 .upload-container {
