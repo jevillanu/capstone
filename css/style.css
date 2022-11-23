@@ -22,7 +22,7 @@ body {
   background-color: #fff;
   padding: 60px;
   border-radius: 100px;
-  display: none;
+  display: flex;
 }
 
 .logo {
