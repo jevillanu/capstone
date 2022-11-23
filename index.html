@@ -135,7 +135,7 @@
         const username = document.getElementById('login-user').value
         const password = document.getElementById('login-pass').value
 
-      userbase.signIn({ username, password, rememberMe: 'local' })
+      userbase.signIn({ username, password, rememberMe: 'none' })
         .then((user) => goToUserView(user.username))
         .catch((e) => document.getElementById('login-error').innerHTML = e)
       }
