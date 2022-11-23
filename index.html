@@ -157,7 +157,8 @@
           .catch((e) => document.getElementById('logout-error').innerText = e)
       }
 
-      function submitEdit() {
+      function submitEdit(e) {
+        e.preventDefault();
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
       }
