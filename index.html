@@ -171,15 +171,15 @@
           .catch((e) => document.getElementById('logout-error').innerText = e)
       }
 
-      function submitEdit() {
+      function submitEdit(e) {
         e.preventDefault()
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
-        .then(() => changeInfo())
-        .catch((e) => console.error(e))
-
+        //userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
+        //.then(() => changeInfo())
+        //.catch((e) => console.error(e))
+        changeInfo()
       }
 
       function changeInfo() {
