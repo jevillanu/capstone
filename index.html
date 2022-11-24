@@ -145,7 +145,7 @@
         document.getElementById('user-div').style.display = 'flex'
         document.getElementById('username-display').innerText = username
 
-        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
       }
 
       function showInfo(items) {
@@ -161,7 +161,7 @@
 
       function editInfo() {
 
-        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
         .then(() => showEdit())
         .catch((e) => console.error(e))
       }
@@ -176,8 +176,8 @@
         e.preventDefault()
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
-        
-        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo()})
         .then(() => changeInfo())
         .catch((e) => console.error(e))
 
