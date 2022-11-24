@@ -177,7 +177,7 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo()})
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
         .then(() => changeInfo())
         .catch((e) => console.error(e))
 
@@ -186,7 +186,7 @@
       function changeInfo() {
         const fnameDisplay = document.getElementById("fname-display").value
 
-        userbase.insertItem({ databaseName: 'userInfo', item: { fname: fnameDisplay }
+        userbase.insertItem({ databaseName: 'userInfo', item: { 'fname': fnameDisplay }
       }).then(() => showInfo())
         .catch((e) => console.error(e))
       }
