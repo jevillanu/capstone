@@ -145,11 +145,11 @@
         document.getElementById('user-div').style.display = 'flex'
         document.getElementById('username-display').innerText = username
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo(items) })
       }
 
       function showInfo(items) {
-        document.getElementById("fname-display").innerText = items[fname]
+        document.getElementById("fname-display").innerText = items[0]
 
 
       }
