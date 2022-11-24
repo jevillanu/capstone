@@ -176,7 +176,7 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler() })
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
         .then(() => changeInfo())
         .catch((e) => console.error(e))
 
