@@ -145,11 +145,11 @@
         document.getElementById('user-div').style.display = 'flex'
         document.getElementById('username-display').innerText = username
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo(items) })
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
       }
 
-      function showInfo(items) {
-        document.getElementById("fname-display").innerText = items[0]
+      function infoHandler(items) {
+        document.getElementById("fname-display").innerText = items[fname]
 
 
       }
@@ -159,12 +159,11 @@
         document.getElementById('info-edit').style.display = 'block'
       }
 
-      function editInfo() {
-
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
-        .then(() => showEdit())
-        .catch((e) => console.error(e))
+      function showInfo() {
+        document.getElementById('info-container').style.display = 'block'
+        document.getElementById('info-edit').style.display = 'none'
       }
+
 
       function handleLogout() {
         userbase.signOut()
@@ -177,16 +176,16 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: showInfo() })
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
         .then(() => changeInfo())
         .catch((e) => console.error(e))
 
       }
 
       function changeInfo() {
-        const fnameDisplay = document.getElementById("fname-display").value
+        const fnameInput = document.getElementById("fname-input").value
 
-        userbase.insertItem({ databaseName: 'userInfo', item: { 'fname': fnameDisplay }
+        userbase.insertItem({ databaseName: 'userInfo', item: { 'fname': fnameInput }
       }).then(() => showInfo())
         .catch((e) => console.error(e))
       }
@@ -196,7 +195,7 @@
       }
 
         document.getElementById('login-form').addEventListener('submit', handleLogin);
-        document.getElementById('edit-button').addEventListener('click', editInfo);
+        document.getElementById('edit-button').addEventListener('click', showEdit);
         document.getElementById('logout-button').addEventListener('click', handleLogout);
         document.getElementById('edit-submit').addEventListener('click', submitEdit);
     </script>
