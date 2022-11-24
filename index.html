@@ -171,7 +171,7 @@
           .catch((e) => document.getElementById('logout-error').innerText = e)
       }
 
-      function submitEdit(e) {
+      function submitEdit() {
         e.preventDefault()
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
@@ -183,6 +183,7 @@
       }
 
       function changeInfo() {
+
         const fnameInput = document.getElementById("fname-input").value
 
         userbase.insertItem({ databaseName: 'userInfo', item: fnameInput
