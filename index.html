@@ -176,18 +176,17 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        //userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
-        //.then(() => changeInfo())
-        //.catch((e) => console.error(e))
-        changeInfo()
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
+        .then(() => changeInfo())
+        .catch((e) => console.error(e))
       }
 
       function changeInfo() {
 
         const fnameInput = document.getElementById("fname-input").value
 
-        userbase.insertItem({ databaseName: 'userInfo', item: fnameInput
-      }).then(() => showInfo())
+        userbase.insertItem({ databaseName: 'userInfo', item: fnameInput})
+        .then(() => showInfo())
         .catch((e) => console.error(e))
       }
 
