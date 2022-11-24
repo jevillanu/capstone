@@ -154,9 +154,16 @@
 
       }
 
-      function editInfo() {
+      function showEdit() {
         document.getElementById('info-container').style.display = 'none'
         document.getElementById('info-edit').style.display = 'block'
+      }
+
+      function editInfo() {
+
+        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+        .then(() => showEdit())
+        .catch((e) => console.error(e))
       }
 
       function handleLogout() {
@@ -169,8 +176,11 @@
         e.preventDefault()
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
+        
+        userbase.openDatabase({ databaseName: 'userInfo', changehandler: showInfo(items)})
+        .then(() => changeInfo())
+        .catch((e) => console.error(e))
 
-        changeInfo()
       }
 
       function changeInfo() {
