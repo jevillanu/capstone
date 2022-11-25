@@ -54,19 +54,19 @@
             <table class="info" style="width:100%">
               <tr>
                 <th style="width:30%">First Name: </th>
-                <td id="fname-display">asdga</td>
+                <td id="fname-display"></td>
               </tr>
               <tr>
                 <th>Last Name: </th>
-                <td id="lname-display">asdga</td>
+                <td id="lname-display"></td>
               </tr>
               <tr>
                 <th>Birthday: </th>
-                <td id="bday-display">te</td>
+                <td id="bday-display"></td>
               </tr>
               <tr>
                 <th>Email: </th>
-                <tdv id="email-display"></td>
+                <td id="email-display"></td>
               </tr>
               <tr>
                 <th>Phone: </th>
@@ -135,28 +135,45 @@
         const username = document.getElementById('login-user').value
         const password = document.getElementById('login-pass').value
 
-      userbase.signIn({ username, password, rememberMe: 'none' })
-        .then((user) => goToUserView(user.username))
-        .catch((e) => document.getElementById('login-error').innerHTML = e)
+        userbase.signIn({ username, password, rememberMe: 'none' })
+          .then((user) => goToUserView(user))
+          .catch((e) => document.getElementById('login-error').innerHTML = e);
       }
 
-      function goToUserView(username) {
+      function goToUserView(user) {
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler });
+
         document.getElementById('auth-view').style.display = 'none'
         document.getElementById('user-div').style.display = 'flex'
-        document.getElementById('username-display').innerText = username
-
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
+        document.getElementById('username-display').innerText = user.username;
+        document.getElementById('email-display').innerText = user.email;
+        
       }
 
       function infoHandler(items) {
-        document.getElementById("fname-display").innerText = items[0].item
+        console.log("In InfoHandler", items);
 
+        let userInfo;
+        items.forEach(item => {
+          if (item.itemId === 'userInfo') userInfo = item;
+        });
 
+        document.getElementById('fname-display').innerText = userInfo?.item.fname ?? "";
+        document.getElementById('lname-display').innerText = userInfo?.item.lname ?? "";
+        document.getElementById("email-display").innerText = userInfo?.item.email ?? "";
+        document.getElementById("bday-display").innerText = userInfo?.item.bday ?? "";
+        document.getElementById("phone-display").innerText = userInfo?.item.phone ?? "";
+
+        document.getElementById('fname-input').innerText = userInfo?.item.fname ?? "";
+        document.getElementById('lname-input').innerText = userInfo?.item.lname ?? "";
+        document.getElementById("email-input").innerText = userInfo?.item.email ?? "";
+        document.getElementById("bday-input").innerText = userInfo?.item.bday ?? "";
+        document.getElementById("phone-input").innerText = userInfo?.item.phone ?? "";
       }
 
       function showEdit() {
-        document.getElementById('info-container').style.display = 'none'
-        document.getElementById('info-edit').style.display = 'block'
+        document.getElementById('info-container').style.display = 'none';
+        document.getElementById('info-edit').style.display = 'block';
       }
 
       function showInfo() {
@@ -176,19 +193,50 @@
         document.getElementById('info-container').style.display = 'block'
         document.getElementById('info-edit').style.display = 'none'
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler(items) })
+        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler })
         .then(() => changeInfo())
         .catch((e) => console.error(e))
       }
 
       function changeInfo() {
 
-        const fnameInput = document.getElementById("fname-input").value
+        const fnameInput = document.getElementById("fname-input").value;
+        const lnameInput = document.getElementById("lname-input").value;
+        const emailInput = document.getElementById("email-input").value;
+        const bdayInput = document.getElementById("bday-input").value;
+        const phoneInput = document.getElementById("phone-input").value;
 
-        userbase.insertItem({ databaseName: 'userInfo', item: fnameInput})
+        userbase.insertItem(
+          {  
+            databaseName: 'userInfo',
+            itemId: "userInfo",
+            item: {
+              "fname": fnameInput,
+              "lname": lnameInput,
+              "email": emailInput,
+              "bday": bdayInput,
+              "phone": phoneInput
+            }
+          }
+        )
         .then(() => showInfo())
-        .catch((e) => console.error(e))
-      }
+        .catch(() => {
+          userbase.updateItem(
+          {  
+            databaseName: 'userInfo',
+            itemId: "userInfo",
+            item: {
+              "fname": fnameInput,
+              "lname": lnameInput,
+              "email": emailInput,
+              "bday": bdayInput,
+              "phone": phoneInput
+            }
+          }
+        )
+        .then(() => showInfo())
+        })
+    }
 
       function goToHomepage() {
         window.location.replace("https://jevillanu.github.io/home.html");
