@@ -1,251 +1,325 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css\style.css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css\style.css" />
     <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
   </head>
   <body>
     <!-- Login Form -->
     <div class="login-div" id="auth-view">
       <div class="logo">
-        <img src="logo.png" alt="">
+        <img src="logo.png" alt="" />
       </div>
 
       <div class="title">Log In</div>
       <form id="login-form">
         <div class="username">
           <svg class="svg-icon" viewBox="0 0 20 20">
-							<path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-					</svg>
-          <input class="login" type="text" required placeholder="Username" id="login-user" name='user'>
+            <path
+              d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"
+            ></path>
+          </svg>
+          <input class="login" type="text" required placeholder="Username" id="login-user" name="user" />
         </div>
         <div class="password">
           <svg class="svg-icon" viewBox="0 0 20 20">
-							<path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
-					</svg>
-          <input class="login" type="password" required placeholder="Password" id="login-pass" name='pass'>
+            <path
+              d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"
+            ></path>
+          </svg>
+          <input class="login" type="password" required placeholder="Password" id="login-pass" name="pass" />
         </div>
         <div class="options">
           <div class="remember-me">
-            <input id="remember-me" type="checkbox">
+            <input id="remember-me" type="checkbox" />
             <label for="remember-me">Remember Me</label>
           </div>
 
-
-        <div class="create-account">
-          <a href="registration.html">Create Account</a>
+          <div class="create-account">
+            <a href="registration.html">Create Account</a>
+          </div>
         </div>
-      </div>
-      <input type='submit' class="login-button" value='Enter'>
+        <input type="submit" class="login-button" value="Enter" />
       </form>
       <div id="login-error"></div>
-
     </div>
     <!-- user profile/upload hub -->
     <div class="user-div" id="user-div">
+      <div class="info-container" id="info-container">
+        <div class="logo">
+          <img src="logo.png" alt="" />
+        </div>
 
-        <div class="info-container" id="info-container">
-          <div class="logo">
-            <img src="logo.png" alt="">
+        <div class="title">User: <span id="username-display">placeholder</span></div>
+        <table class="info" style="width: 100%">
+          <tr>
+            <th style="width: 30%">First Name:</th>
+            <td><input class="user-edit" type="text" id="fname-display" readonly /></td>
+          </tr>
+          <tr>
+            <th>Last Name:</th>
+            <td><input class="user-edit" type="text" id="lname-display" readonly /></td>
+          </tr>
+          <tr>
+            <th>Birthday:</th>
+            <td><input class="user-edit" type="text" id="bday-display" readonly /></td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td><input class="user-edit" type="text" id="email-display" readonly /></td>
+          </tr>
+          <tr>
+            <th>Phone:</th>
+            <td><input class="user-edit" type="text" id="phone-display" readonly /></td>
+          </tr>
+        </table>
+        <div class="user-buttons">
+          <button type="button" id="edit-button" class="edit-button">Edit Info</button>
+          <button type="button" id="upload-button" class="upload-button">Upload Image</button>
+        </div>
+        <div class="logout-container">
+          <button type="button" id="logout-button" class="logout-button">Logout</button>
+        </div>
+        <div id="logout-error"></div>
+      </div>
+
+      <!-- info edit page -->
+      <div class="info-edit" id="info-edit">
+        <div class="logo">
+          <img src="logo.png" alt="" />
+        </div>
+
+        <div class="title">Edit Info</div>
+        <form class="" id="user-edit">
+          <table class="info" style="width: 100%">
+            <tr>
+              <th style="width: 30%">First Name:</th>
+              <td><input class="user-edit" type="text" id="fname-input" /></td>
+            </tr>
+            <tr>
+              <th>Last Name:</th>
+              <td><input class="user-edit" type="text" id="lname-input" /></td>
+            </tr>
+            <tr>
+              <th>Birthday:</th>
+              <td><input class="user-edit" type="text" id="bday-input" /></td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td><input class="user-edit" type="text" id="email-input" /></td>
+            </tr>
+            <tr>
+              <th>Phone:</th>
+              <td><input class="user-edit" type="text" id="phone-input" /></td>
+            </tr>
+          </table>
+          <div class="submit-container">
+            <input type="button" class="edit-submit" value="Submit" id="edit-submit" />
           </div>
+        </form>
+      </div>
 
-          <div class="title">User: <span id="username-display">placeholder</span></div>
-            <table class="info" style="width:100%">
-              <tr>
-                <th style="width:30%">First Name: </th>
-                <td id="fname-display"></td>
-              </tr>
-              <tr>
-                <th>Last Name: </th>
-                <td id="lname-display"></td>
-              </tr>
-              <tr>
-                <th>Birthday: </th>
-                <td id="bday-display"></td>
-              </tr>
-              <tr>
-                <th>Email: </th>
-                <td id="email-display"></td>
-              </tr>
-              <tr>
-                <th>Phone: </th>
-                <td id="phone-display"></td>
-              </tr>
-            </table>
-            <div class="user-buttons">
-              <button type="button" id="edit-button" class="edit-button">Edit Info</button>
-              <button type="button" id="upload-button" class="upload-button">Upload Image</button>
-            </div>
-            <div class="logout-container">
-              <button type="button" id="logout-button" class="logout-button">Logout</button>
-            </div>
-            <div id="logout-error"></div>
-
+      <div id="upload-file" style="display: none">
+        <div class="logo">
+          <img src="logo.png" alt="" />
         </div>
 
-        <!-- info edit page -->
-        <div class="info-edit" id="info-edit">
-          <div class="logo">
-            <img src="logo.png" alt="">
-          </div>
-
-          <div class="title">Edit Info</div>
-          <form class="" id="user-edit">
-            <table class="info" style="width:100%">
-              <tr>
-                <th style="width:30%">First Name:</th>
-                <td><input class="user-edit"type="text" id="fname-input"/></td>
-              </tr>
-              <tr>
-                <th>Last Name:</th>
-                <td><input class="user-edit" type="text" id="lname-input"/></td>
-              </tr>
-              <tr>
-                <th>Birthday: </th>
-                <td><input class="user-edit" type="text" id="bday-input"/></td>
-              </tr>
-              <tr>
-                <th>Email: </th>
-                <td><input class="user-edit" type="text" id="email-input"/></td>
-              </tr>
-              <tr>
-                <th>Phone: </th>
-                <td><input class="user-edit" type="text" id="phone-input"/></td>
-              </tr>
-            </table>
-            <div class="submit-container">
-              <input type='button' class="edit-submit" value='Submit' id="edit-submit"/>
-            </div>
-
-          </form>
+        <div class="title">Upload Picture</div>
+        <div><label for="myfile">Select a file:</label></div>
+        <div><input type="file" id="myfile" name="myfile" accept="image/jpeg" /></div>
+        <div class="submit-container">
+          <input type="button" class="edit-submit" value="Upload" id="upload-submit" />
         </div>
-        <div class="upload-container">
-          test
-        </div>
-
+      </div>
+      <div class="upload-container"><img src="" alt="" id="uploaded-image" /></div>
     </div>
+
     <!-- Application Code -->
     <script type="text/javascript">
-      userbase.init({ appId: '2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae' })
+      userbase.init({ appId: "2af1e9ca-a2b4-4cca-ade1-3f9d2c65eaae" });
 
       function handleLogin(e) {
-        e.preventDefault()
+        e.preventDefault();
 
-        const username = document.getElementById('login-user').value
-        const password = document.getElementById('login-pass').value
+        let username = document.getElementById("login-user").value;
+        let password = document.getElementById("login-pass").value;
 
-        userbase.signIn({ username, password, rememberMe: 'none' })
+        userbase
+          .signIn({ username, password, rememberMe: "none" })
           .then((user) => goToUserView(user))
-          .catch((e) => document.getElementById('login-error').innerHTML = e);
+          .catch((e) => (document.getElementById("login-error").innerHTML = e));
       }
 
       function goToUserView(user) {
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler });
+        userbase.openDatabase({
+          databaseName: "userInfo",
+          changeHandler: infoHandler,
+        });
 
-        document.getElementById('auth-view').style.display = 'none'
-        document.getElementById('user-div').style.display = 'flex'
-        document.getElementById('username-display').innerText = user.username;
-        document.getElementById('email-display').innerText = user.email;
-        
+        document.getElementById("auth-view").style.display = "none";
+        document.getElementById("user-div").style.display = "flex";
+        document.getElementById("username-display").innerText = user.username;
+        document.getElementById("email-display").innerText = user.email;
       }
 
       function infoHandler(items) {
-        console.log("In InfoHandler", items);
-
         let userInfo;
-        items.forEach(item => {
-          if (item.itemId === 'userInfo') userInfo = item;
+        items.forEach((item) => {
+          if (item.itemId === "userInfo") userInfo = item;
         });
 
-        document.getElementById('fname-display').innerText = userInfo?.item.fname ?? "";
-        document.getElementById('lname-display').innerText = userInfo?.item.lname ?? "";
-        document.getElementById("email-display").innerText = userInfo?.item.email ?? "";
-        document.getElementById("bday-display").innerText = userInfo?.item.bday ?? "";
-        document.getElementById("phone-display").innerText = userInfo?.item.phone ?? "";
+        document.getElementById("fname-display").value = userInfo?.item.fname ?? "";
+        document.getElementById("lname-display").value = userInfo?.item.lname ?? "";
+        document.getElementById("email-display").value = userInfo?.item.email ?? "";
+        document.getElementById("bday-display").value = userInfo?.item.bday ?? "";
+        document.getElementById("phone-display").value = userInfo?.item.phone ?? "";
 
-        document.getElementById('fname-input').innerText = userInfo?.item.fname ?? "";
-        document.getElementById('lname-input').innerText = userInfo?.item.lname ?? "";
-        document.getElementById("email-input").innerText = userInfo?.item.email ?? "";
-        document.getElementById("bday-input").innerText = userInfo?.item.bday ?? "";
-        document.getElementById("phone-input").innerText = userInfo?.item.phone ?? "";
+        document.getElementById("fname-input").value = userInfo?.item.fname ?? "";
+        document.getElementById("lname-input").value = userInfo?.item.lname ?? "";
+        document.getElementById("email-input").value = userInfo?.item.email ?? "";
+        document.getElementById("bday-input").value = userInfo?.item.bday ?? "";
+        document.getElementById("phone-input").value = userInfo?.item.phone ?? "";
+
+        showImage(userInfo.fileId);
       }
 
       function showEdit() {
-        document.getElementById('info-container').style.display = 'none';
-        document.getElementById('info-edit').style.display = 'block';
+        document.getElementById("info-container").style.display = "none";
+        document.getElementById("info-edit").style.display = "block";
+        document.getElementById("upload-file").style.display = "none";
       }
 
       function showInfo() {
-        document.getElementById('info-container').style.display = 'block'
-        document.getElementById('info-edit').style.display = 'none'
+        document.getElementById("info-container").style.display = "block";
+        document.getElementById("info-edit").style.display = "none";
+        document.getElementById("upload-file").style.display = "none";
       }
 
+      function showUpload() {
+        document.getElementById("info-container").style.display = "none";
+        document.getElementById("info-edit").style.display = "none";
+        document.getElementById("upload-file").style.display = "block";
+      }
 
       function handleLogout() {
-        userbase.signOut()
+        userbase
+          .signOut()
           .then(() => goToHomepage())
-          .catch((e) => document.getElementById('logout-error').innerText = e)
+          .catch((e) => (document.getElementById("logout-error").innerText = e));
       }
 
       function submitEdit(e) {
-        e.preventDefault()
-        document.getElementById('info-container').style.display = 'block'
-        document.getElementById('info-edit').style.display = 'none'
+        e.preventDefault();
+        document.getElementById("info-container").style.display = "block";
+        document.getElementById("info-edit").style.display = "none";
 
-        userbase.openDatabase({ databaseName: 'userInfo', changeHandler: infoHandler })
-        .then(() => changeInfo())
-        .catch((e) => console.error(e))
+        let fnameInput = document.getElementById("fname-input").value;
+        let lnameInput = document.getElementById("lname-input").value;
+        let emailInput = document.getElementById("email-input").value;
+        let bdayInput = document.getElementById("bday-input").value;
+        let phoneInput = document.getElementById("phone-input").value;
+
+        userbase
+          .openDatabase({
+            databaseName: "userInfo",
+            changeHandler: infoHandler,
+          })
+          .then(() => changeInfo(fnameInput, lnameInput, emailInput, bdayInput, phoneInput))
+          .catch((e) => console.error(e));
       }
 
-      function changeInfo() {
+      function submitUpload() {
+        let filename = document.getElementById("myfile").value;
 
-        const fnameInput = document.getElementById("fname-input").value;
-        const lnameInput = document.getElementById("lname-input").value;
-        const emailInput = document.getElementById("email-input").value;
-        const bdayInput = document.getElementById("bday-input").value;
-        const phoneInput = document.getElementById("phone-input").value;
+        userbase
+          .openDatabase({
+            databaseName: "userInfo",
+            changeHandler: picChangeHandler,
+          })
+          .then(() => uploadPic(filename))
+          .catch((e) => console.error(e));
+      }
 
-        userbase.insertItem(
-          {  
-            databaseName: 'userInfo',
+      function uploadPic(filename) {
+        let file = document.getElementById("myfile").files[0];
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          userbase.uploadFile({
+            databaseName: "userInfo",
+            itemId: "userInfo",
+            file: new File([e.target.result], file.name, { type: "image/jpeg" }),
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function showImage(fileId) {
+        userbase
+          .getFile({
+            databaseName: "userInfo",
+            fileId,
+          })
+          .then((file) => {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var blob = new Blob([e.target.result], { type: "image/jpeg" });
+              document.getElementById("uploaded-image").src = e.target.result;
+            };
+            reader.readAsBinaryString(file.file);
+          });
+      }
+
+      function picChangeHandler(items) {
+        document.getElementById("info-container").style.display = "block";
+        document.getElementById("info-edit").style.display = "none";
+        document.getElementById("upload-file").style.display = "none";
+
+        infoHandler(items);
+      }
+
+      function changeInfo(fnameInput, lnameInput, emailInput, bdayInput, phoneInput) {
+        userbase
+          .insertItem({
+            databaseName: "userInfo",
             itemId: "userInfo",
             item: {
-              "fname": fnameInput,
-              "lname": lnameInput,
-              "email": emailInput,
-              "bday": bdayInput,
-              "phone": phoneInput
-            }
-          }
-        )
-        .then(() => showInfo())
-        .catch(() => {
-          userbase.updateItem(
-          {  
-            databaseName: 'userInfo',
-            itemId: "userInfo",
-            item: {
-              "fname": fnameInput,
-              "lname": lnameInput,
-              "email": emailInput,
-              "bday": bdayInput,
-              "phone": phoneInput
-            }
-          }
-        )
-        .then(() => showInfo())
-        })
-    }
+              fname: fnameInput,
+              lname: lnameInput,
+              email: emailInput,
+              bday: bdayInput,
+              phone: phoneInput,
+            },
+          })
+          .then(() => showInfo())
+          .catch(() => {
+            userbase
+              .updateItem({
+                databaseName: "userInfo",
+                itemId: "userInfo",
+                item: {
+                  fname: fnameInput,
+                  lname: lnameInput,
+                  email: emailInput,
+                  bday: bdayInput,
+                  phone: phoneInput,
+                },
+              })
+              .then(() => showInfo());
+          });
+      }
 
       function goToHomepage() {
         window.location.replace("https://jevillanu.github.io/home.html");
       }
 
-        document.getElementById('login-form').addEventListener('submit', handleLogin);
-        document.getElementById('edit-button').addEventListener('click', showEdit);
-        document.getElementById('logout-button').addEventListener('click', handleLogout);
-        document.getElementById('edit-submit').addEventListener('click', submitEdit);
+      document.getElementById("login-form").addEventListener("submit", handleLogin);
+      document.getElementById("edit-button").addEventListener("click", showEdit);
+      document.getElementById("upload-button").addEventListener("click", showUpload);
+      document.getElementById("logout-button").addEventListener("click", handleLogout);
+      document.getElementById("edit-submit").addEventListener("click", submitEdit);
+      document.getElementById("upload-submit").addEventListener("click", submitUpload);
     </script>
   </body>
 </html>
